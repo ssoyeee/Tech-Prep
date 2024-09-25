@@ -2,8 +2,8 @@ class Solution:
     def buddyStrings(self, s: str, goal: str) -> bool:
         # edge case
         # first of all, string has be the same size
-      #  if len(s) != len(goal):
-         #   return False
+        if len(s) != len(goal):
+           return False
 
         # create the Counter object to see if the number of the characters
         s_char, goal_char = Counter(s), Counter(goal) #O(1), dict only have 26 letters
