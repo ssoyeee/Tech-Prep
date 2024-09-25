@@ -6,6 +6,7 @@ class Solution:
            return False
 
         # create the Counter object to see if the number of the characters
+        #We can also use .keys() and .values() methods to access Counter class object
         s_char, goal_char = Counter(s), Counter(goal) #O(1), dict only have 26 letters
         if s_char != goal_char: #maybe different character, different length
             return False
@@ -15,14 +16,15 @@ class Solution:
             if s[i] != goal[i]:
                 diff += 1
 
-        if diff == 0:
+        if diff == 2:
+            return True
+
+        elif diff == 0:
             if max(s_char.values())> 1: 
                 return True 
             else:
                 return False
-        if diff == 2:
-            return True
-        
-        return False
+        else:
+            return False
 
 
