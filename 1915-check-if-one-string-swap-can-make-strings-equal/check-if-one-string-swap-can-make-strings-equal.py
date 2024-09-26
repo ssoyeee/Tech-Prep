@@ -13,8 +13,8 @@ class Solution:
                 diff += 1
         if diff != 2:
             return False
-                
-        return True    
+        else:
+            return True    
 
         '''
         # edge
