@@ -19,8 +19,8 @@ class Solution:
             else:
                 if s1[i] in dict_s1:
                     return False
-                dict_s1[s1[i]] = s2[i] #dict_s1: {b:k}
-                dict_s2[s2[i]] = s1[i] #dict_s2: {k:b}
+                dict_s1[s1[i]] = s2[i] #dict_s1: {b:k, a:a, n:n, k:b}
+                dict_s2[s2[i]] = s1[i] #dict_s2: {k:b, a:a, n:n, b:k}
         if dict_s1 == dict_s2 and len(dict_s1) <= 2:
             return True
         else:
