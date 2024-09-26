@@ -1,5 +1,22 @@
 class Solution:
     def areAlmostEqual(self, s1: str, s2: str) -> bool:
+        # if both Counter are different immediately False
+        if Counter(s1) != Counter(s2):
+            return False
+        # two strings are equal, no swap required
+        if s1 == s2:
+            return True
+
+        diff = 0
+        for i in range(len(s1)):
+            if s1[i] != s2[i]:
+                diff += 1
+        if diff != 2:
+            return False
+                
+        return True    
+
+        '''
         # edge
         # first of all, two strings are equal, no swap required
         if s1 == s2:
@@ -25,4 +42,5 @@ class Solution:
             return True
         else:
             return False
-            
+
+    '''
