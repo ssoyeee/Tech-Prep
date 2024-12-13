@@ -18,5 +18,5 @@ def solution (dartResult):
             start_index = i+1
 
     # 2. return sum of scores
-        return sum(scores)
+    return sum(scores)
 solution('1S2D*3T')
