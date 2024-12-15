@@ -1,8 +1,8 @@
 def caesarCipherEncryptor(string, key):
     # ascii 97-122
     answer = []
-    askiistring=0
+    asciistring=0
     for letter in string:
-        askiistring = ((ord(letter)-97)+key)%26
-        answer.append(chr(97+askiistring))
+        asciistring = ((ord(letter)-97)+key)%26
+        answer.append(chr(97+asciistring))
     return ''.join(answer)
