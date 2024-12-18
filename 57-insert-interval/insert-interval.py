@@ -4,7 +4,8 @@ class Solution:
 
         for i in range(len(intervals)):
             # end value of newInterval is less than start value of current intervals,
-            # just merge
+            # non-overlapping, just append it to in front of current intervals
+            # by + operation 
             if newInterval[1] < intervals[i][0]:
                 result.append(newInterval)
                 return result + intervals[i:]
