@@ -25,4 +25,5 @@ class Solution:
         # While you can iterate through it, 
         # you cannot directly access elements using indexing like you would with a list. 
 
-        
+        # Time: O(NK log K) where N is length of strs, and K is max length of string in strs, and sort each string in O(K log K)
+        # Space: O(NK)
