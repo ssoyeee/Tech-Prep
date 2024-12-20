@@ -8,7 +8,7 @@ class Solution:
             for c in s:  #go through every single character in each string
                 #wanna know the count of how many of each characters
                 count[ord(c)-ord("a")] += 1 #increment this by 1
-            res[tuple(count)].append(s) 
+            res[tuple(count)].append(s) # tuple: list is not hashable in python, it cannot be used as a dict key
             #wanna group all anagrams to this particular count together
         return res.values() #return the group of anagrams
         '''
@@ -18,5 +18,11 @@ class Solution:
             anagrams[''.join(sorted(word))].append(word)      
                                        
         return list(anagrams.values())
+
+        # dict.values() returns a view object: 
+        # When you use my_dict.values() in Python, 
+        # it returns a "dict_values" object which is a view of the dictionary's values, not a standard list. 
+        # While you can iterate through it, 
+        # you cannot directly access elements using indexing like you would with a list. 
 
         
