@@ -13,14 +13,12 @@ class Solution:
         while heap or prev:
             if prev and not heap:
                 return ""
-            # most frequent, except prev
             count, char = heappop(heap)
             answer += char
-            count += 1 # count is negative so increment by +1
+            count += 1 
             if prev:
                 heappush(heap, prev)
-                prev = None
+                prev = None # set to null again
             if count != 0:
-                prev = [count, char]
-
+                prev = [count,char]
         return answer
