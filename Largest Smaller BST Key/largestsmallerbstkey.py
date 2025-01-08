@@ -51,7 +51,9 @@ class BinarySearchTree:
         else:
           cur = cur.left
       return result
-
+# Time: O(H) where H is height of tree -> in worst O(N), if balanced O(logN)
+# Space: O(1)
+  
   # Given a binary search tree and a number, inserts a
   # new node with the given number in the correct place
   # in the tree. Returns the new root pointer which the
