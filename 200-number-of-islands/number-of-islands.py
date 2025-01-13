@@ -11,7 +11,7 @@ class Solution:
             for i in range(4):
                 newY = y + dirY[i]
                 newX = x + dirX[i]
-                if 0 <= newY < N and 0 <= newX < M and grid[newY][newX]== "1":
+                if 0 <= newY < N and 0 <= newX < M and grid[newY][newX]== "1": # avoid list index out of range 
                         dfs(newY, newX)
 
             # call dfs
