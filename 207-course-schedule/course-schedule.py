@@ -22,3 +22,7 @@ class Solution:
             completedCourses += 1
 
         return numCourses == completedCourses
+
+    # Topological Sort by BFS
+    # Time: O(V+E)
+    # Space: O(V+E)
