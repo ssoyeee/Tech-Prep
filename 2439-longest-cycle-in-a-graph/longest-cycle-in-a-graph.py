@@ -37,3 +37,6 @@ class Solution:
             dependent_node = edges[dependent_node]
             length += 1
         return length
+    
+    # Time: O(V+E)
+    # Space: O(V+E)
