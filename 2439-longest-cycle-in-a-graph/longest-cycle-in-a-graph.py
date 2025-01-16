@@ -33,7 +33,6 @@ class Solution:
 
         while dependent_node != start_node:
             visited[dependent_node] = True
-            node = dependent_node
             dependent_node = edges[dependent_node]
             length += 1
         return length
