@@ -1,6 +1,5 @@
 class Solution:
     def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
-        # 0. initialize
         graph = defaultdict(list)
         indegrees = [0] * numCourses
 
