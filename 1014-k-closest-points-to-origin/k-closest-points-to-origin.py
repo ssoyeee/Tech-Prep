@@ -9,4 +9,4 @@ class Solution:
 
         return [item[1] for item in max_heap]  #return point
         # Time: O(N*log K) where N is the number of list points , K is size of heap
-        # Space: O(K) where k is max heap size
+        # Space: O(K) where k is maximum heap size
