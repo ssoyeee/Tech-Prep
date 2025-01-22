@@ -13,3 +13,5 @@ class Solution:
                 i += 1
             j += 1
         return max_avg
+        # Time: O(N) where N is length of nums
+        # Space: O(1)
