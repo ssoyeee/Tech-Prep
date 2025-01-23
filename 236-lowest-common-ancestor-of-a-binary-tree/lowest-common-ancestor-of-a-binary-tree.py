@@ -7,6 +7,17 @@
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        if root in (None, p, q): return root
-        left, right = (self.lowestCommonAncestor(child, p, q) for child in (root.left, root.right))
-        return root if left and right else left or right
+        if not root:
+            return None
+        if root == p or root == q:
+            return root
+   
+        l = self.lowestCommonAncestor(root.left, p, q)
+        r = self.lowestCommonAncestor(root.right, p, q)
+
+        if l and r:
+            return root
+        else: 
+            return l or r
+    #T: O(N)
+    #S: O(1) if not counting recursive stack frames, otherwise O(N)
