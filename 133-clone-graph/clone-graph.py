@@ -8,19 +8,22 @@ class Node:
 
 from typing import Optional
 class Solution:
-    def helper(self, node, visited):
-        if node is None:
+    def cloneGraph(self, node: 'Node') -> 'Node':
+        if not node:
             return None
+            
+        cloned = {}
+        cloned[node] = Node(node.val, [])
         
-        newNode = Node(node.val)
-        visited[node.val] = newNode
+        queue = collections.deque([node])
+
+        while queue:
+            cur = queue.popleft()
+
+            for neighbor in cur.neighbors:
+                if neighbor not in cloned:
+                    cloned[neighbor] = Node(neighbor.val, [])
+                    queue.append(neighbor)
+                cloned[cur].neighbors.append(cloned[neighbor])
         
-        for adjNode in node.neighbors:
-            if adjNode.val not in visited:
-                newNode.neighbors.append(self.helper(adjNode, visited))
-            else:
-                newNode.neighbors.append(visited[adjNode.val])
-        
-        return newNode
-    def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
-        return self.helper(node, {})
+        return cloned[node]
