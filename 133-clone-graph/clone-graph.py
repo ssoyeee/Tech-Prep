@@ -27,3 +27,5 @@ class Solution:
                 cloned[cur].neighbors.append(cloned[neighbor])
         
         return cloned[node]
+        # Time O(N)
+        # Space O(N)
