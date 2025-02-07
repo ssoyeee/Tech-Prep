@@ -26,20 +26,7 @@ class Solution:
                         grid[newRow][newCol] = 2
             minutes += 1
         return minutes if fresh == 0 else -1  
-        '''
-        row, col = len(grid), len(grid[0])
-        rotten = {(i, j) for i in range(row) for j in range(col) if grid[i][j] == 2}
-        fresh = {(i, j) for i in range(row) for j in range(col) if grid[i][j] == 1}
-        timer = 0
-        new_dir = [(0, 1), (1, 0), (0, -1), (-1, 0)]
-        while fresh:
-            if not rotten: 
-                return -1
-            rotten = {(i+di, j+dj) for i, j in rotten for di, dj in new_dir if (i+di, j+dj) in fresh}
-            fresh -= rotten
-            timer += 1
-        return timer
-        '''
+
 
         # Time O(m*n) where m, n are the number of rows and col
         # Space O(m*n) in worst case, when all org are fresh
