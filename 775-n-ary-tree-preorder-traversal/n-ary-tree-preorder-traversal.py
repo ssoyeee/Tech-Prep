@@ -7,6 +7,8 @@ class Node:
 """
 
 class Solution:
+    #recursive
+    '''
     def preorder(self, root: 'Node') -> List[int]:
         output = []
         self.dfs(root, output)
@@ -20,3 +22,15 @@ class Solution:
 
         for child in root.children:
             self.dfs(child, output)
+'''
+    #iterative
+    def preorder(self, root):
+        if root is None:
+            return []
+        stack = [root]
+        output = []
+        while stack:
+            temp = stack.pop()
+            output.append(temp.val)
+            stack.extend(temp.children[::-1])
+        return output
