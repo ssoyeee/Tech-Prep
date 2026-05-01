@@ -5,4 +5,6 @@ class Solution:
         
         return "".join(val * freq for val, freq in sorted_counts)
 
+        # T: O(N log N) where N = unique characters
+        # S: O(N)
             
