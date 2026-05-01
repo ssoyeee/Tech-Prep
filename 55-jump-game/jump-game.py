@@ -6,3 +6,6 @@ class Solution(object):
                 return False
             max_reach = max(max_reach, nums[i] + i)
         return True
+
+        # T: O(n)
+        # S: O(1)
