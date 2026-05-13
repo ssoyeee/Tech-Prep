@@ -18,3 +18,6 @@ class Solution:
 
         # return top k student_ids
         return [sid for sid, scores in sorted_students[:k]]
+
+        # T: O(N log N) ---- O(W+R*L+NlogN) where W=pos/neg set, R*L= iterating over reports*avg words per report, NlogN for sorting
+        # S: O(N) ---- O(W+N) where N= scores dict, W= pos/neg set
