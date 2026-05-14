@@ -7,7 +7,7 @@ class Solution:
         current_end = 0
         max_reach = 0
 
-        for i in range(len(nums)-1):
+        for i in range(len(nums)-1): # don't need to check the last index, as we are already arrived
             max_reach = max(max_reach, nums[i]+i)
             if i == current_end:
                 current_end = max_reach
