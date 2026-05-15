@@ -18,3 +18,5 @@ class Solution:
                 return False
         return True
         
+        #T: O(N) where N is len of bills
+        #S: O(1) two var
