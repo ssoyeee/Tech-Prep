@@ -12,3 +12,6 @@ class Solution:
             visited.add(i)
             return dfs(i+arr[i]) or dfs(i-arr[i])
         return dfs(start)
+
+    #T: O(N) where N is len(arr)
+    #S: O(N) for visited set
