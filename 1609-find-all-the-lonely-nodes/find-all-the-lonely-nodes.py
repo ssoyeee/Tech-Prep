@@ -8,7 +8,7 @@ class Solution:
     def getLonelyNodes(self, root: Optional[TreeNode]) -> List[int]:
         result = []
         
-        def dfs(node):
+        def dfs(node): # outer param: root, inner dfs param: node
             if node is None:
                 return
             if node.left is None and node.right is not None:
