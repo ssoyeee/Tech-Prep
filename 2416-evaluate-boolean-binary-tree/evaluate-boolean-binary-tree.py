@@ -14,3 +14,6 @@ class Solution:
             return left or right
         if root.val == 3:
             return left and right
+
+    # T: O(N) -- visit every node
+    # S: O(H) -- where H is height of tree, recursion call stack
