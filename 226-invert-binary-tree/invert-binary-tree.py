@@ -14,5 +14,5 @@ class Solution:
         
         return root
 
-        #T: O(H) -- BST
+        #T: O(N) -- visit all nodes
         #S: O(H) -- recursion call stack
