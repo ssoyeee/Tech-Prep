@@ -17,3 +17,6 @@ class Solution:
             result.append(node.val)
         dfs(root)
         return result
+
+        # T: O(N) visit every node
+        # S: O(N) result array + recursion call stack
