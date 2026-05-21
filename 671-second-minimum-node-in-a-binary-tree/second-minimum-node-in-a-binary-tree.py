@@ -1,24 +1,25 @@
 # Definition for a binary tree node.
-# class TreeNode:
+# class TreeNode(object):
 #     def __init__(self, val=0, left=None, right=None):
 #         self.val = val
 #         self.left = left
 #         self.right = right
-class Solution:
-    def findSecondMinimumValue(self, root: Optional[TreeNode]) -> int:
-        vals = set()
-
-        def dfs(node):
+class Solution(object):
+    def findSecondMinimumValue(self, root):
+        """
+        :type root: Optional[TreeNode]
+        :rtype: int
+        """
+        def dfs(node, min_val):
             if node is None:
-                return
-            vals.add(node.val) #store each node's value in a set (duplicates ignored)
-            dfs(node.left)
-            dfs(node.right)
-        dfs(root)
+                return -1
+            if node.val > min_val:
+                return node.val
+            left = dfs(node.left, min_val)
+            right = dfs(node.right, min_val)
 
-        vals.remove(root.val) # remove root val (1st min) to find 2nd min
-        return min(vals) if vals else -1
+            if left == -1: return right
+            if right == -1: return left
+            return min(left, right)
 
-        # brute-force
-        # T: O(N) -- visit every node
-        # S: O(N) -- 'set' stores all node values
+        return dfs(root, root.val)
