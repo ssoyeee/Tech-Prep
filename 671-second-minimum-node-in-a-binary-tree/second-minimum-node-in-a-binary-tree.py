@@ -18,3 +18,7 @@ class Solution:
 
         vals.remove(root.val) # remove root val (1st min) to find 2nd min
         return min(vals) if vals else -1
+
+        # brute-force
+        # T: O(N) -- visit every node
+        # S: O(N) -- 'set' stores all node values
