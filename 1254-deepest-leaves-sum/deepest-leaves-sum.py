@@ -23,3 +23,5 @@ class Solution:
 
         dfs(root, 0)
         return self.total
+        # T: O(N) -- visit every node
+        # S: O(H) -- recursion call stack
