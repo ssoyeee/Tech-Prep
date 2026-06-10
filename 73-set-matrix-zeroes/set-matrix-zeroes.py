@@ -1,26 +1,18 @@
 class Solution(object):
     def setZeroes(self, matrix: List[List[int]]) -> None:
-        is_col = False
-        R = len(matrix)
-        C = len(matrix[0])
-        for i in range(R):
+        rows = set()
+        cols = set()
+
+        for r in range(len(matrix)):
+            for c in range(len(matrix[0])):
+                if matrix[r][c] == 0:
+                    rows.add(r)
+                    cols.add(c)
         
-            if matrix[i][0] == 0:
-                is_col = True
-            for j in range(1, C):
-                if matrix[i][j] == 0:
-                    matrix[0][j] = 0
-                    matrix[i][0] = 0
-
-        for i in range(1, R):
-            for j in range(1, C):
-                if not matrix[i][0] or not matrix[0][j]:
-                    matrix[i][j] = 0
-
-        if matrix[0][0] == 0:
-            for j in range(C):
-                matrix[0][j] = 0
-
-        if is_col:
-            for i in range(R):
-                matrix[i][0] = 0
+        for r in rows:
+            for c in range(len(matrix[0])):
+                matrix[r][c] = 0
+        for c in cols:
+            for r in range(len(matrix)):
+                matrix[r][c]=0
+        
