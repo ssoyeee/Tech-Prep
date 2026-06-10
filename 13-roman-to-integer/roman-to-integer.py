@@ -14,5 +14,7 @@ class Solution(object):
                 result += roman[s[i]]
 
         return result
-
+        
+        # S: O(1) -- roman hashmap fixed at 7 entries
+        # T: O(N) -- iterate through every character
         
