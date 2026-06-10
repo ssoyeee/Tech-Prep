@@ -16,3 +16,5 @@ class Solution(object):
             for r in range(len(matrix)):
                 matrix[r][c]=0
         
+        # T: O(M*N) -- visit all cells in matrix
+        # S: O(M+N) -- 2 sets storing row and col indices
