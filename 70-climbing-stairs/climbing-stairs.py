@@ -10,3 +10,6 @@ class Solution:
         for _ in range(3, n+1):
             prev, curr = curr, prev+curr
         return curr
+        
+# T: O(N) -- iterate N steps
+# S: O(1) -- only two variables prev and curr
