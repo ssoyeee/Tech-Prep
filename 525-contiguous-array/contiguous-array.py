@@ -14,6 +14,8 @@ class Solution:
             else: 
                 seen[prefix_sum] = i
         return max_len
-        
+
+        # T: O(N) -- visit every node
+        # S: O(N) -- hashmap seen
 
 
