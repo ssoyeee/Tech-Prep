@@ -6,8 +6,8 @@ class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         count = Counter(nums)
         return heapq.nlargest(k, count.keys(), key=count.get)
-        # T: O(N log K), 
-        # S: O(N)
+        # T: O(N log K) -- iterate N elements, heap size kept at K (nlargest는 sorted 보다 효율)
+        # S: O(N) -- Counter stores all elements
 
         '''
         num2count = Counter(nums)
