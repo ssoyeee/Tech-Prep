@@ -1,19 +1,29 @@
-class Solution(object):
-    def groupAnagrams(self, strs):
-        """
-        :type strs: List[str]
-        :rtype: List[List[str]]
-        """
-        groups = {}
+from collections import defaultdict
 
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        '''
+        res = defaultdict(list) #mapping charCount to list of Anagrams
+        for s in strs:
+            count = [0] * 26 # one for each character (a~z) #1 e 1 a 1 t
+            for c in s:  #go through every single character in each string
+                #wanna know the count of how many of each characters
+                count[ord(c)-ord("a")] += 1 #increment this by 1
+            res[tuple(count)].append(s) # tuple: list is not hashable in python, it cannot be used as a dict key
+            #wanna group all anagrams to this particular count together
+        return res.values() #return the group of anagrams
+        '''
+        groups = defaultdict(list)
         for word in strs:
-            ch = "".join(sorted(word)) # sorted() -> asc order, in string lexicographically
-            if ch in groups:
-                groups[ch].append(word)
-            else:
-                groups[ch] = [word]
+            ch = ''.join(sorted(word))
+            groups[ch].append(word)
         return list(groups.values())
 
-        #Time: O(N*K log K) -- where n is length of strs, time complexity of sorted() is O(k log k) and there are for loop. O(n)
-        #Space: O(N*K) -- where k is maximum length of each word
-   
+        # dict.values() returns a view object: 
+        # When you use my_dict.values() in Python, 
+        # it returns a "dict_values" object which is a view of the dictionary's values, not a standard list. 
+        # While you can iterate through it, 
+        # you cannot directly access elements using indexing like you would with a list. 
+
+        # Time: O(NK log K) where N is length of strs, and K is max length of string in strs, and sort each string in O(K log K)
+        # Space: O(NK) for anagrams
