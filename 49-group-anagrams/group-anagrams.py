@@ -5,25 +5,15 @@ class Solution(object):
         :rtype: List[List[str]]
         """
         groups = {}
-        
+
         for word in strs:
-            ch = "".join(sorted(word))
+            ch = "".join(sorted(word)) # sorted() -> asc order, in string lexicographically
             if ch in groups:
                 groups[ch].append(word)
             else:
                 groups[ch] = [word]
         return list(groups.values())
 
-
-
-
-        '''
-        anagrams = defaultdict(list)
-
-        for word in strs:
-            anagrams[''.join(sorted(word))].append(word)
-        return list(anagrams.values())
-
-        #Time: O(N*K log K) 
-        #Space: O(N*K) anagrams defaultdict
-        '''
+        #Time: O(N*K log K) -- where n is length of strs, time complexity of sorted() is O(k log k) and there are for loop. O(n)
+        #Space: O(N*K) -- where k is maximum length of each word
+   
