@@ -5,5 +5,6 @@ class Solution:
                 yield prefix
                 return
             for index, num in enumerate(nums):
-                yield from helper(prefix + [num], nums[:index] + nums[index+1:])
+                yield from helper(prefix + [num], nums[:index] + nums[index+1:]) 
+                # add num to prefix, all elements except the one at index
         return list(helper([], nums))
