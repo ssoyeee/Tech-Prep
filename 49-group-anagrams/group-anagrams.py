@@ -4,6 +4,20 @@ class Solution(object):
         :type strs: List[str]
         :rtype: List[List[str]]
         """
+        groups = {}
+        
+        for word in strs:
+            ch = "".join(sorted(word))
+            if ch in groups:
+                groups[ch].append(word)
+            else:
+                groups[ch] = [word]
+        return list(groups.values())
+
+
+
+
+        '''
         anagrams = defaultdict(list)
 
         for word in strs:
@@ -12,3 +26,4 @@ class Solution(object):
 
         #Time: O(N*K log K) 
         #Space: O(N*K) anagrams defaultdict
+        '''
