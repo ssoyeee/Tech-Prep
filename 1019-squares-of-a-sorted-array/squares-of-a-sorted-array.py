@@ -1,6 +1,7 @@
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
-        result =[]
-        for i in range(len(nums)):
-            result.append(nums[i]*nums[i])
-        return sorted(result)
+        squared_result = [x**2 for x in nums]
+        return sorted(squared_result)
+        
+        # Time: O(n log n) -- uses sorted()
+        # --> with Two Pointer, O(n)
