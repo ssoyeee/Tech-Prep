@@ -9,3 +9,6 @@ class Solution:
                 mainTank += 1
         total_used += mainTank
         return total_used * 10
+
+        # Time: O(n) -- where n is mainTank's value
+        # Space: O(1) -- only use constant number of variables
