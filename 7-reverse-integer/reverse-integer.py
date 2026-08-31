@@ -19,3 +19,6 @@ class Solution(object):
         if reversed_integer < -2**31 or reversed_integer > 2**31 - 1:
             return 0
         return reversed_integer
+
+        # Time: O(log x) -- since we process one digit per iteration, x has about log base 10 of x digits
+        # Space: O(1) -- since we only use a fixed number of variables
