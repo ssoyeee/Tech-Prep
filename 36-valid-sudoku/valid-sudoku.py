@@ -19,3 +19,5 @@ class Solution(object):
                 cols[c].add(val)
                 boxes[(r//3, c//3)].add(val)
         return True
+        
+        # Time: O(1) & Space O(1) -- board size is fixed at 9x9 
