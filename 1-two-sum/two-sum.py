@@ -12,3 +12,7 @@ class Solution(object):
                 return [num_map[difference], index]
             else:
                 num_map[num] = index
+
+
+        # Time: O(n) -- single pass through nums, each hashmap operation is O(1) 
+        # Space: O(n) -- in worst, num_map can have up to n-1 elements
