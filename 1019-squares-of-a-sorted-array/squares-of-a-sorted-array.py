@@ -25,5 +25,6 @@ class Solution(object):
         # left == right
         result[pos] = nums[left]**2
         return result
-        # two pointer O(n)
+        # two pointer 
         # Time: O(n)
+        # Space: O(n) -- result array
