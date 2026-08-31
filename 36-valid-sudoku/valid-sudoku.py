@@ -1,24 +1,21 @@
-class Solution:
-    def isValidSudoku(self, board: List[List[str]]) -> bool:
-        N = 9
+class Solution(object):
+    def isValidSudoku(self, board):
+        """
+        :type board: List[List[str]]
+        :rtype: bool
+        """
+        rows = defaultdict(set)
+        cols = defaultdict(set)
+        boxes = defaultdict(set)
 
-        cols = defaultdict(set) # key => col num, val => set
-        rows = defaultdict(set) # key => row num, val => set
-        squares = defaultdict(set) # 3*3  
-        # (0,0): {"5", "3", "6"}, 
-        # (1,1): {"8"},
-
-        for r in range(N):
-            for c in range(N):
-                if board[r][c] == ".": 
+        for r in range(9):
+            for c in range(9):
+                val = board[r][c]
+                if val == ".":
                     continue
-                if (board[r][c] in rows[r] or 
-                    board[r][c] in cols[c] or
-                    board[r][c] in squares[(r//3, c//3)]):
+                if val in rows[r] or val in cols[c] or val in boxes[(r//3, c//3)]:
                     return False
-                cols[c].add(board[r][c]) 
-                rows[r].add(board[r][c])
-                squares[(r//3, c//3)].add(board[r][c])
+                rows[r].add(val)
+                cols[c].add(val)
+                boxes[(r//3, c//3)].add(val)
         return True
-    # Time O(1), O(N^2) N=9 O(81)
-    # Space O(1), O(3N) O(3*9)=O(27)
