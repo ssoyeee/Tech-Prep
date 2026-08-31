@@ -1,10 +1,11 @@
 class Solution:
     def distanceTraveled(self, mainTank: int, additionalTank: int) -> int:
-        total = mainTank # total liter 
+        total_used = 0
         while mainTank >= 5:
             mainTank -= 5
-            if additionalTank > 0:
-                additionalTank -= 1
+            total_used += 5
+            if additionalTank >= 1:
+                additionalTank -=1
                 mainTank += 1
-                total += 1
-        return total * 10
+        total_used += mainTank
+        return total_used * 10
