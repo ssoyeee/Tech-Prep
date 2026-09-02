@@ -29,3 +29,6 @@ class Solution(object):
             if not dfs(course):
                 return False
         return True
+
+        # Time: O(v+e) -- visit each node/edge once
+        # Space: O(v+e) -- graph, visiting/visited sets, and recursion stack all scale with v and e
