@@ -26,6 +26,8 @@ class Solution(object):
                     dfs(r, c)
         return count
         
+        # Time: O(rows*cols) -- since we visit each cell at most once. either in the main loop or during a DFS call
+        # Space: O(rows*cols) in worst case due to recursion stack. dfs call stack can grow as deep as the total number of cells
 
         
         '''
