@@ -1,22 +1,32 @@
-class Solution:
-    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+class Solution(object):
+    def findOrder(self, numCourses, prerequisites):
+        """
+        :type numCourses: int
+        :type prerequisites: List[List[int]]
+        :rtype: List[int]
+        """
         graph = defaultdict(list)
-        indegrees = [0] * numCourses
+        in_degree = [0] * numCourses
 
-        for prerequisite in prerequisites:
-            graph[prerequisite[1]].append(prerequisite[0])
-            indegrees[prerequisite[0]] += 1
+        for course, prereq in prerequisites:
+            graph[prereq].append(course)
+            in_degree[course] += 1
         
-        queue = deque(i for i in range(numCourses) if indegrees[i] == 0)
-        index = 0
-        order = [0] * numCourses
+        queue = deque()
+        for course in range(numCourses):
+            if in_degree[course] == 0:
+                queue.append(course)
+        result = []
         while queue:
             course = queue.popleft()
-            for dependent_course in graph[course]:
-                indegrees[dependent_course] -= 1
-                if indegrees[dependent_course] == 0:
-                    queue.append(dependent_course)
-            order[index] += course
-            index += 1
-        return order if index == numCourses else []
+            result.append(course)
+            for next_course in graph[course]:
+                in_degree[next_course] -= 1
+                if in_degree[next_course] == 0:
+                    queue.append(next_course)
+
         
+        if len(result) == numCourses:
+            return result
+        else: 
+            return []
