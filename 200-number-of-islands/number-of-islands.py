@@ -1,58 +1,63 @@
-class Solution:
-    def numIslands(self, grid: List[List[str]]) -> int:
-        dirY = [-1, 1, 0, 0]
-        dirX = [0, 0, -1, 1]
-        N = len(grid) # num of row
-        M = len(grid[0]) # num of column
+class Solution(object):
+    def numIslands(self, grid):
+        """
+        :type grid: List[List[str]]
+        :rtype: int
+        """
+        rows = len(grid)
+        cols = len(grid[0])
 
-        def dfs(y,x):
-            grid[y][x] = "0"
-            
-            for i in range(4):
-                newY = y + dirY[i]
-                newX = x + dirX[i]
-                if 0 <= newY < N and 0 <= newX < M and grid[newY][newX]== "1": # avoid list index out of range 
-                        dfs(newY, newX)
+        def dfs(row, col):
+        #base case
+            if row < 0 or row >= rows or col < 0 or col >= cols or grid[row][col]=='0':
+                return
+            grid[row][col] = '0'
 
-            # call dfs
-        answer = 0
-        for i in range(N):
-            for j in range(M):
-                if grid[i][j]=="1":
-                    dfs(i, j)
-                    answer += 1
-        return answer
-        
-        '''
-        if not grid: #empty
-            return 0
-        
-        rows, cols = len(grid), len(grid[0])
-        visited = set()
-        islands = 0 #number of islands
+            dfs(row+1, col)
+            dfs(row-1, col)
+            dfs(row, col+1)
+            dfs(row, col-1)
 
-        def bfs(r,c):
-            q = collections.deque() #normally used for bfs
-            visited.add((r,c)) #must be tuple format
-            q.append((r,c))
-
-            while q: #expanding our island
-                row, col = q.popleft() #pop from the queue-bfs
-                directions = [[1,0],[-1,0],[0,1],[0,-1]] #4 directions that we can go with 
-
-                for dr,dc in directions: #check this position is inbound
-                    r,c = row+dr, col+dc #compute our new rows, cols coordinate based on the direction that we're at 
-                    if (r in range(rows) and
-                        c in range(cols) and
-                        grid[r][c] == '1' and #it's land
-                       (r, c) not in visited): #it hasn't been visited
-                        q.append((r, c))
-                        visited.add((r, c))
-
+        count = 0
         for r in range(rows):
             for c in range(cols):
-                if grid[r][c] == '1' and (r,c) not in visited: 
-                    bfs(r,c)
-                    islands += 1
-        return islands
-'''
+                if grid[r][c] == "1":
+                    count += 1
+                    dfs(r, c)
+        return count
+        
+
+        
+        '''
+        # 1) boundary
+        # 2) water
+        # 3) mark visited
+        # 4) 4 directions
+
+        if not grid or not grid[0]:
+            return 0
+            
+        rows = len(grid)
+        cols = len(grid[0])
+        dirs = [(1,0),(-1,0),(0,1),(0,-1)]
+
+        def dfs(r,c):
+            if r <0 or c<0 or r>=rows or c>=cols:
+                return
+
+            if grid[r][c] == "0":
+                return
+
+            grid[r][c] = "0"
+
+            for dr, dc in dirs:
+                dfs(r+dr, c+dc)
+
+        count = 0
+        for r in range(rows):
+            for c in range(cols):
+                if grid[r][c] == "1":
+                    count += 1
+                    dfs(r, c)
+        return count
+        '''
