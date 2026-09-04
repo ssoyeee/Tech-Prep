@@ -16,3 +16,6 @@ class Solution:
                 if colSum[j]== 1 and rowSum[i]==1 and mat[i][j]==1:
                     special_count +=1
         return special_count
+
+        # Time: O(m*n) -- m rows and n cols
+        # Space: O(m+n) -- where len(rowSum) is m and len(colSum) is n
