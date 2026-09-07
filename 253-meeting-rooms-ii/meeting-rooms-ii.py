@@ -4,17 +4,18 @@ class Solution(object):
         :type intervals: List[List[int]]
         :rtype: int
         """
-
         starts = sorted(i[0] for i in intervals)
         ends = sorted(i[1] for i in intervals)
-        rooms = max_rooms = 0
-        i = j = 0
-        while i < len(starts):
-            if starts[i] < ends[j]:
+        rooms = 0
+        max_rooms = 0
+        s, e = 0, 0
+
+        while s<len(starts):
+            if starts[s] < ends[e]:
                 rooms += 1
-                i += 1
-            else:
+                s += 1
+            else: 
                 rooms -= 1
-                j += 1
-            max_rooms = max(max_rooms, rooms)
+                e += 1
+            max_rooms = max(rooms, max_rooms)
         return max_rooms
