@@ -10,7 +10,7 @@ class Solution(object):
         max_rooms = 0
         s, e = 0, 0
 
-        while s<len(starts):
+        while s < len(starts):
             if starts[s] < ends[e]:
                 rooms += 1
                 s += 1
@@ -19,3 +19,5 @@ class Solution(object):
                 e += 1
             max_rooms = max(rooms, max_rooms)
         return max_rooms
+        # Time: O(n log n) -- sorted()-> O(n log n), while -> O(n)
+        # Space: O(n) -- starts [], ends []
