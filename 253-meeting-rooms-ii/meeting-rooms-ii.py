@@ -1,23 +1,14 @@
-class Solution(object):
-    def minMeetingRooms(self, intervals):
-        """
-        :type intervals: List[List[int]]
-        :rtype: int
-        """
-        starts = sorted(i[0] for i in intervals)
-        ends = sorted(i[1] for i in intervals)
-        rooms = 0
-        max_rooms = 0
-        s, e = 0, 0
+import heapq
 
-        while s < len(starts):
-            if starts[s] < ends[e]:
-                rooms += 1
-                s += 1
-            else: 
-                rooms -= 1
-                e += 1
-            max_rooms = max(rooms, max_rooms)
-        return max_rooms
-        # Time: O(n log n) -- sorted()-> O(n log n), while -> O(n)
-        # Space: O(n) -- starts [], ends []
+class Solution:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        if not intervals:
+            return 0
+        intervals.sort(key=lambda x: x[0])
+        heap = []
+        for start, end in intervals:
+            if heap and heap[0] <= start:
+                heapq.heapreplace(heap, end)
+            else:
+                heapq.heappush(heap, end)    
+        return len(heap)
