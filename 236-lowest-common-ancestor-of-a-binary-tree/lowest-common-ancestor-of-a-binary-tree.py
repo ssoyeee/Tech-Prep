@@ -21,6 +21,8 @@ class Solution:
             return left
         elif right:
             return right
-        else:
+        else: # root O, no descendants
             return None
-        
+            
+        # Time: O(n) -- visit every node in the worst case
+        # Space: O(n) -- call stack depth = tree height, up to n for a skewed tree
