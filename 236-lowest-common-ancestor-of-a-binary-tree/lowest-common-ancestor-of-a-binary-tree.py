@@ -11,13 +11,16 @@ class Solution:
             return None
         if root == p or root == q:
             return root
-   
-        l = self.lowestCommonAncestor(root.left, p, q)
-        r = self.lowestCommonAncestor(root.right, p, q)
+        
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
 
-        if l and r:
+        if left and right:
             return root
-        else: 
-            return l or r
-    #T: O(N)
-    #S: O(1) if not counting recursive stack frames, otherwise O(N)
+        elif left:
+            return left
+        elif right:
+            return right
+        else:
+            return None
+        
