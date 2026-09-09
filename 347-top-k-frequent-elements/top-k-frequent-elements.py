@@ -1,46 +1,20 @@
-#from heapq import heapify, heappop, heappush
 from collections import Counter
 import heapq
 
-class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        count = Counter(nums)
-        return heapq.nlargest(k, count.keys(), key=count.get)
-        # T: O(N log K) -- iterate N elements, heap size kept at K (nlargest는 sorted 보다 효율)
-        # S: O(N) -- Counter stores all elements
-
-        '''
-        num2count = Counter(nums)
-        heap = []
-        for num, count in num2count.items():
-            heap.append((-count, num))
-        heapify(heap)
-        answer = []
-        for _ in range(k):
-            _, num = heappop(heap)
-            answer.append(num)
-        return answer
-        '''
-
-        '''
-        count = {}
-        freq = [[]for i in range(len(nums)+1)]
-
-        for n in nums:
-            count[n] = 1 + count.get(n,0)
-        
-        for n, c in count.items():
-            freq[c].append(n)
-
-        res = []
-        for i in range(len(freq)-1, 0, -1):
-            for n in freq[i]:
-                res.append(n)
-                if len(res) == k:
-                    return res
-        '''
-        '''
+class Solution(object):
+    def topKFrequent(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
         counted_nums = Counter(nums)
-        sorted_counts = sorted(counted_nums.items(), key=lambda x: (-x[1], x[0]))
-        return [val for val, freq in sorted_counts[:k]]
-        '''
+        heap = []
+        for num, count in counted_nums.items():
+            heapq.heappush(heap, (count, num))
+            if len(heap) > k:
+                heapq.heappop(heap)
+        return [x[1] for x in heap]
+
+        # Time: O(n log k) -- Counter build is O(n), heap push/pop ops are O(log k) and when k~n
+        # Space: O(n) -- Counter stores up to n unique values; heap adds O(k) but O(n)>O(k)
