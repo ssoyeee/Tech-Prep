@@ -20,3 +20,6 @@ class Solution(object):
             return -1
         else: 
             return start_index
+        
+        # Time: O(n) -- single pass through the array
+        # Space: O(1) -- three vars
