@@ -6,14 +6,17 @@ class Solution(object):
         """
         nums.sort()
         output = []
+        
         for i in range(len(nums)):
             left = i + 1
             right = len(nums)-1
 
             if i > 0 and nums[i] == nums[i-1]:
                 continue
+
             while left < right:
                 total = nums[i] + nums[left]+ nums[right]
+
                 if total < 0:
                     left += 1
                 elif total > 0:
