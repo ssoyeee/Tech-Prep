@@ -8,7 +8,7 @@ class Solution(object):
         left = 0
         right = len(numbers)-1
 
-        while left<=right:
+        while left<right:
             target_sum = numbers[left]+numbers[right]
             if target_sum < target:
                 left += 1
