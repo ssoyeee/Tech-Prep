@@ -13,3 +13,5 @@ class Solution:
             else:
                 return mid
         return l
+        # Time: O(log n)-- cut the search space in half on each iteration
+        # Space: O(1)
