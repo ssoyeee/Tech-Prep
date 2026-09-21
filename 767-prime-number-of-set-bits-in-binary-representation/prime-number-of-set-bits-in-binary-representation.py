@@ -1,25 +1,17 @@
-from collections import defaultdict
-class Solution:
-    def countPrimeSetBits(self, left: int, right: int) -> int:
+class Solution(object):
+    def countPrimeSetBits(self, left, right):
+        """
+        :type left: int
+        :type right: int
+        :rtype: int
+        """
+        prime_set = [2, 3, 5, 7, 11, 13, 17, 19]
         count = 0
-        bit_counts = []
 
-        for num in range(left, right + 1):
-            ones = format(num, 'b').count('1')
-            bit_counts.append(ones)
+        for val in range(left, right+1):
+            ones = format(val, 'b').count('1')
 
-        for val in bit_counts:
-            if val <= 1:
-                continue
-
-            limit = int(math.sqrt(val))
-
-            for div in range(2, limit + 1):
-                if val % div == 0:
-                    break
-            else:
+            if ones in prime_set: 
                 count += 1
 
         return count
-        # Time: O(n * sqrt(B)) -- where B is max set bits, n is right - left+1
-        # Space: O(n)
