@@ -13,7 +13,7 @@ class Solution(object):
         right_max = height[r]
 
         while l < r:
-            if left_max < right_max:
+            if left_max <= right_max:
                 output_sum += left_max - height[l]      
                 l += 1          
                 left_max = max(left_max, height[l])
