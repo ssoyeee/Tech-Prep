@@ -24,3 +24,5 @@ class Solution(object):
                 right_max = max(right_max, height[r])
 
         return output_sum
+        #Time: O(n) -- where n is length of height
+        #Space: O(1)
