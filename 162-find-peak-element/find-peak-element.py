@@ -9,3 +9,5 @@ class Solution:
             else:
                 r = mid
         return l
+        # Time: O(log N) -- where n is length of nums
+        # Space: O(1)
