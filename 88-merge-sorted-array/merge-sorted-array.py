@@ -20,4 +20,5 @@ class Solution(object):
                 i -= 1
             k -= 1
         
-        
+        # Time: O(m+n) -- each loop iteration places one element, at most m+n placements
+        # Space: O(1)
