@@ -8,3 +8,5 @@ class Solution:
                 if n > value:
                     value = n
         return value
+        # Time: O(n) -- single pass through the array
+        # Space: O(1)
