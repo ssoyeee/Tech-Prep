@@ -5,6 +5,7 @@
 #         self.next = next
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        #with heap
         h = [(l.val, idx) for idx, l in enumerate(lists) if l]
         heapq.heapify(h)
         head = cur = ListNode(None)
