@@ -7,8 +7,11 @@ class NumArray:
             self.prefix.append(self.prefix[-1]+num)
 
     def sumRange(self, left: int, right: int) -> int:
+        # prefix[i] = sum of the first i elements in nums
         return self.prefix[right+1] - self.prefix[left]
 
+    # Time: O(n+q), where n is the arr length and q is the num of queries
+    # Space: O(n)
 
 # Your NumArray object will be instantiated and called as such:
 # obj = NumArray(nums)
