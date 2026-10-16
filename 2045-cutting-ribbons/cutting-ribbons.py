@@ -15,3 +15,11 @@ class Solution:
         for ribbon in ribbons:
             count += ribbon//length
         return count >= k
+
+    #Time: O(n log M) -- where M is max(ribbons) and n is len(ribbons), 
+    #                   (binary search runs logM times, each can_cut scans n ribbons)
+    #Space: O(1)
+
+    # Pattern
+    # Find Last 'O' left = mid, right=mid-1, round-up mid, return left
+    # Find First 'X' right = mid, left = mid+1, round-down mid, return left
