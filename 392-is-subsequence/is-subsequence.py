@@ -9,3 +9,6 @@ class Solution:
                 j += 1
         
         return i == len(s)
+
+        # T: O(N) -- N is len(t)
+        # S: O(1) -- two pointers only
