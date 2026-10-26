@@ -13,6 +13,7 @@ class Solution(object):
                     length+=1
                     n+=1
                 longest = max(length, longest)
-                
-                
+
         return longest
+        # Time: O(n)
+        # Space: O(n)
