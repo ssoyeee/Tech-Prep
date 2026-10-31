@@ -19,4 +19,7 @@ class Solution:
                     stack.append(int(stack.pop()/num))
                 op = ch
                 num = 0
+
         return sum(stack)
+        # Time: O(n) -- one pass over s, each stack operation is O(1)
+        # Space: O(n) -- stack holds up to n/2 numbers
