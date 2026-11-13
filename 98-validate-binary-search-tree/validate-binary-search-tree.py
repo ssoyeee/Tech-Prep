@@ -22,3 +22,6 @@ class Solution(object):
             # recursive call 
             return (valid(node.left, left, node.val)) and (valid(node.right, node.val, right))
         return valid(root, float("-inf"), float("inf"))
+
+        # Time: O(n) -- visit every node, single pass, where n is number of node 
+        # Space: O(h) -- h is the height tree, depth of recursive call stack
