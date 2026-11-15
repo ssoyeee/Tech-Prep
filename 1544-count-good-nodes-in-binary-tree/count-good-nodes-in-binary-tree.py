@@ -12,6 +12,7 @@ class Solution(object):
         """
         self.count = 0
         def dfs(node, max_so_far):
+            # base case: empty node, nothing to count
             if not node:
                 return 
             if node.val >= max_so_far:
@@ -21,3 +22,6 @@ class Solution(object):
             dfs(node.right, new_max)
         dfs(root, float("-inf"))
         return self.count
+        
+        # Time: O(n) -- visit every node, constant work per node
+        # Space: O(h) -- recursive call stack, h is height of tree
