@@ -10,3 +10,7 @@ class Solution:
             if freq[i]>0:
                 ans+=freq[i]
         return ans
+        #Time: O(n)
+        #Space: O(26)
+
+        #return sum((Counter(s)-Counter(t)).values()) 
