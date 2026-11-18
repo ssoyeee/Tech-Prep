@@ -10,7 +10,8 @@ class Solution:
                 else: 
                     s.pop()
                     break
-            else: s.append(a)        
+            else: 
+                s.append(a)        
         return s
         #Time: O(N)
         
